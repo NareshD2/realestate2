@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container1 {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: green;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      background-color: white;
+      color: black;
+    }
+
+    form label {
+      grid-column: span 2;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    form input[type="text"],
+    form select,
+    form textarea,
+    form input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form input[type="file"] {
+      padding: 5px;
+    }
+
+    form .full-width {
+      grid-column: span 2;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: green;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      grid-column: span 2;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: darkgreen;
+    }
+
+    .add-image-btn {
+      background-color: green;
+      margin-bottom: 10px;
+    }
+
+    .add-image-btn:hover {
+      background-color: darkgreen;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    #popup button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="container1">
+      <img src="https://i.imgur.com/wuoPB2Q.png" alt="Ramul Real Estate Logo">
+    </div>
+
+    <h1>Seller Dashboard</h1>
+    <h2>Please fill below Form to add your property to our website</h2>
+    <form id="additems" action="/additems.html" method="POST" enctype="multipart/form-data">
+      
+      <label for="category">Please select category:</label>
+      <select id="category" name="category" class="full-width" required>
+        <option value="House in Apartment">House in Apartment</option>
+        <option value="Independent House">Independent House</option>
+        <option value="Commercial plots">Commercial plots</option>
+        <option value="Domestic plots">Domestic plots</option>
+        <option value="Lands">Lands</option>
+        <option value="Duplex">Duplex</option>
+        <option value="Villa">Villa</option>
+      </select>
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="For example: 2BHK independent house" class="full-width" required>
+      
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" placeholder="Enter your selling price" class="full-width" required>
+      
+      <label for="area">Area in square feet:</label>
+      <input type="text" id="area" name="area" placeholder="Please enter your area in square feet" required>
+      
+      <label for="length">Length in feet:</label>
+      <input type="text" id="length" name="length" placeholder="Enter length in feet" required>
+      
+      <label for="breadth">Breadth in feet:</label>
+      <input type="text" id="breadth" name="breadth" placeholder="Enter breadth in feet" required>
+      
+      <label for="shape">Shape:</label>
+      <input type="text" id="shape" name="shape" placeholder="For example: rectangle or square" required>
+      
+      <label for="soilcolor">Soil Color:</label>
+      <input type="text" id="soilcolor" name="soilcolor" placeholder="For example: red or black" required>
+      
+      <label for="type1">Property Type:</label>
+      <select id="type1" name="type1" class="full-width" required>
+        <option value="Domestic">Domestic</option>
+        <option value="Commercial">Commercial</option>
+      </select>
+      
+      <label for="specifications">Specifications:</label>
+      <textarea id="specifications" name="specifications" rows="5" placeholder="Enter any specifications for your property" class="full-width" required></textarea>
+      
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" placeholder="Please enter the property address" class="full-width" required>
+      
+      <label for="pincode">Pincode:</label>
+      <input type="text" id="pincode" name="pincode" placeholder="Please enter the pincode of the property location" class="full-width" required>
+      
+      <label for="phonenumber">Phone Number:</label>
+      <input type="text" id="phonenumber" name="phonenumber" placeholder="Please enter the phone number of the property owner" class="full-width" required>
+      
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" rows="10" placeholder="Highlight points about your property such as facilities, security, sanitation, location, etc." class="full-width" required></textarea>
+      
+      <label for="image1">Image 1:</label>
+      <input type="file" id="image1" name="images[]" accept="image/*" required>
+      <label for="image2">Image 2:</label>
+      <input type="file" id="image2" name="images[]" accept="image/*" required>
+      <label for="image3">Image 3:</label>
+      <input type="file" id="image3" name="images[]" accept="image/*" required>
+      <label for="image4">Image 4:</label>
+      <input type="file" id="image4" name="images[]" accept="image/*" required>
+      
+      <div id="additionalImages" class="full-width"></div>
+      <button type="button" class="add-image-btn" onclick="addImageInput()">Add Image</button>
+      
+      <label for="video">Video:</label>
+      <input type="file" id="video" name="video" accept="video/*">
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="popup">
+      <p id="popupMessage"></p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    let imageCount = 4;
+
+    function addImageInput() {
+      imageCount++;
+      const newImageInput = document.createElement('div');
+      newImageInput.innerHTML = `<label for="image${imageCount}">Image ${imageCount}:</label>
+                                 <input type="file" id="image${imageCount}" name="images[]" accept="image/*" required>`;
+      document.getElementById('additionalImages').appendChild(newImageInput);
+    }
+
+    document.getElementById("additems").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+        
+      const formData = new FormData(event.target);
+      
+      // Log form data to the console
+      console.log("Form data before submission:");
+      formData.forEach((value, key) => {
+          console.log(key + ": " + value);
+      });
+
+      // Perform validation
+      let isFormValid = true;
+      const requiredFields = ['category', 'name', 'price', 'area', 'length', 'breadth', 'shape', 'soilcolor', 'type1', 'specifications', 'location', 'pincode', 'phonenumber', 'description'];
+      for (let field of requiredFields) {
+          if (!formData.get(field)) {
+              isFormValid = false;
+              alert(`${field} is required.`);
+              break;
+          }
+      }
+      
+      if (isFormValid) {
+          fetch('/additems.html', {
+              method: 'POST',
+              body: formData
+          })
+          .then(response => {
+              if (response.ok) {
+                  showPopup("Form submitted successfully!");
+              } else {
+                  throw new Error("Failed to submit the form.");
+              }
+          })
+          .catch(error => {
+              console.error("Error submitting the form:", error);
+              showPopup("Failed to submit the form. Please try again later.");
+          });
+      }
+    });
+
+    function showPopup(message) {
+      document.getElementById('popupMessage').textContent = message;
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

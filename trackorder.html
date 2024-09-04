@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .progress {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      height: 100%;
+      width: 2px;
+      background-color: #ccc;
+      z-index: -1;
+    }
+
+    .step.active .circle {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .step.completed .circle {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    .circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #007bff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .step-text {
+      margin-left: 20px;
+    }
+
+    .order-success {
+      text-align: top;
+      margin-top: 00px
+      font-weight: bold;
+      color: #28a745; /* Green color */
+      font-size: 40px
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Order Tracking</h1>
+    <div class="progress">
+      <div class="step active">
+        <div class="circle">1</div>
+        <div class="step-text">Order Placed</div>
+      </div>
+      <div class="step completed">
+        <div class="circle">2</div>
+        <div class="step-text">Dispatched</div>
+      </div>
+      <div class="step">
+        <div class="circle">3</div>
+        <div class="step-text">Out for Delivery</div>
+      </div>
+      <div class="step">
+        <div class="circle">4</div>
+        <div class="step-text">Delivered</div>
+      </div>
+      <div class="step">
+        <div class="circle">5</div>
+        <div class="step-text">Received</div>
+      </div>
+    </div>
+    <div class="order-success">Order Placed Successfully!!</div>
+  </div>
+</body>
+</html>

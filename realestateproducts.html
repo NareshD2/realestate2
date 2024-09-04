@@ -1,0 +1,42 @@
+<div class="products-list">
+
+    <div class="products-detail">
+        <div class="product-image">
+            {{%FIRST_IMAGE%}}
+        </div>
+        <div class="product-specs">
+            <h3>{{%NAME%}}</h3>
+            <h4>{{%category%}}<h4>
+            <p><span>Area:</span>{{%area%}} in Square feets</p>
+            <p><span>Length:</span>{{%length%}}Square feets</p>
+            <p><span>Breadth:</span>{{%breadth%}}Square feets</p>
+            <p><span>Type:</span>{{%Type%}}</p><!--residentil or commercial-->
+            <p><span>Soil Color:</span>{{%SOIL COLOR%}}</p>
+            <p><span>Specfications:</span>{{%Specific%}}</p><!--apartment or independent-->
+            <p><span>PinCode:</span>{{%PinCode%}}</p>
+        </div>
+    </div>
+    <div class="products-detail">
+        <div class="product-info"><h4><span>Price :</span>{{%price%}} Rupees</h4></div>
+        <div class="product-info"><h4><span>Location :</span>{{%Location%}}</h4></div>
+        <div class="product-info">
+            <button class="btn btn-primary" onclick="somepage()">Buy Now</button>
+            <button class="btn btn-primary">
+                <a href="/products?id={{%ID%}}" class="btn btn-primary">Show Details</a>
+            </button>
+            
+        </div>
+    </div>
+    <div class="chatbot">
+        <button class="chatbot button" onclick="loadWebpage()"> chatbot</button>
+        <iframe id="embeddedFrame" width="800" height="600" frameborder="0"></iframe>
+    </div>
+    <script>
+        function loadWebpage() {
+            window.location.href= "https://mediafiles.botpress.cloud/62cd8613-abc8-40c4-8870-379efaccaeb5/webchat/bot.html";
+        }
+        function somepage() {
+            window.location.href= 'payment.html';
+        }
+    </script>
+</div>

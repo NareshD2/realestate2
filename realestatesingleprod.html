@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css "/>
+</head>
+<body>
+    <style>
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        .frame {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .image {
+            min-width: 100%;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .overlay-content {
+            position: relative;
+            width: 80%;
+            height: 80%;
+        }
+
+        .overlay-slider {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .overlay-image {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <div class="container">
+        <img src="arrow.png" class="arrow left">
+        <div class="frame">
+            <div class="slider">
+                <!--<img src="image1.jpg"  class="image">
+                <img src="image2.png"  class="image">
+                <img src="image3.jpg"  class="image">-->
+                {{%FIRST_IMAGE%}}
+            </div>
+
+        </div>
+         
+        <img src="arrow.png" class="arrow right">
+        </div>
+    <div class="overlay" id="overlay">
+            <img src="arrow.png" class="arrow left" id="overlayLeft">
+            <div class="overlay-content">
+                <div class="overlay-slider" id="overlaySlider">
+                    <!--<img src="image1.jpg" class="overlay-image">
+                    <img src="image2.png" class="overlay-image">
+                    <img src="image3.jpg" class="overlay-image">-->
+                    {{%FIRST_IMAGE1%}}
+                </div>
+            </div>
+            <img src="arrow.png" class="arrow right" id="overlayRight">
+    </div>
+    
+    <script src="script.js"></script>
+<div>
+    <div class="page-content">
+        <div class="product-page">
+            <div class="product-desc">
+                <div class="rating-box-expert">
+                    <h3>Expert Rating Out of 5<span class="highlight">Stars</h3>
+                    <h4>{{%EXPERTRATING%}} <span class="highlight">Stars</span></h4>
+                </div>
+                <div class="product-desc-image">
+                <iframe width="560" height="400" src="{{%VIDEO%}}"></iframe>
+                    <div class="product-details-info">
+                        <h1>{{%NAME%}}</h1>
+                        <h2 style="color: green;">Price {{%PRICE%}} Rupees</h2>
+                        <div class="product-desc-details">
+                            <h3>Details</h3>
+                            <p class="product-desc-p"><span>Area :</span>{{%Area%}}</p>
+                            <h4>Dimensions</h4>
+                            <p class="product-desc-p"><span>Length :</span>{{%Length%}}</p>
+                            <p class="product-desc-p"><span>Breadth :</span>{{%Breadth%}}</p>
+                            <p class="product-desc-p"><span>Shape :</span>{{%Shape%}}</p>
+                            <p class="product-desc-p"><span>SoilColor :</span>{{%SoilColor%}}</p>
+                            <p class="product-desc-p"><span>Type :</span>{{%Type%}}</p>
+                            <p class="product-desc-p"><span>Category :</span>{{%Category%}}</p>
+                            <p class="product-desc-p"><span>Specific :</span>{{%Specifications%}}</p>
+                            <p class="product-desc-p"><span>Location :</span>{{%Location%}}</p>
+                            <p class="product-desc-p"><span>Pincode :</span>{{%Pincode%}}</p>
+                            <!--<p class="product-desc-p"><b>ROM</b>{{%ROM%}} GB</p>-->
+                        </div>
+                        <div class="product-details-desc">
+                            <h3>Description</h3>
+                            <p class="product-desc-p">
+                                {{%DESC%}}
+                            </p>
+                        </div>
+                        <div class="rating-box-customer">
+                            <h3>Customer Rating Out Of 5 <span class="highlight">Stars</span></h3>
+                            <h4>{{%CUSTOMERRATING%}} <span class="highlight">Stars</h4>
+                        </div>
+                        <div class="chatbot">
+                            <button class="chatbot button" onclick="loadWebpage()">chatbot</button>
+                            <iframe id="embeddedFrame" width="800" height="600" frameborder="0"></iframe>  
+                        </div>
+                        
+    
+        <script>
+            function loadWebpage() {
+                window.location.href="https://mediafiles.botpress.cloud/62cd8613-abc8-40c4-8870-379efaccaeb5/webchat/bot.html";
+            }
+            function startverification1() {
+                window.location.href="https://meet.google.com/ueu-zneb-qdm";
+            }
+        </script>
+                        
+                        
+                        
+                </div>
+                <button onclick="startverification1()" class="btn btn-primary" >LIVE VERIFICATION</button>
+                </div>
+    
+                <div>
+                    <a href="/products" class="btn-back">Back</a>
+                </div>
+            </div>
+            
+    
+        </div>
+    </div>
+</div>
+    
+    
+    
+</body>
+</html>
